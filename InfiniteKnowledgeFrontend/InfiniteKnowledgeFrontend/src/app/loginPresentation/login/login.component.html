@@ -1,0 +1,34 @@
+<div class="col-md-6 offset-md-3">
+    <h3 class="text-center">Iniciar sesión</h3>
+    <form (ngSubmit)= "onSubmit()" #loginForm = "ngForm">
+      <div class="form-group">
+        <label>Correo electrónico: </label>
+        <input type = "text"
+        class="form-control"
+        id = "correoElectronico"
+        [(ngModel)] = "correoElectronico"
+        name = "correoElectronico"
+        required
+        minlength="1"
+        maxlength="50"
+        placeholder="Digite su Correo Electrónico "
+        >
+      </div>
+
+      <div class="form-group">
+        <label>Contraseña: </label>
+        <input type = "password"
+        class="form-control"
+        id = "contrasenia"
+        [(ngModel)] = "contrasenia"
+        name = "contrasenia"
+        required
+        minlength="8"
+        maxlength="100"
+        placeholder="Digite su Contraseña "
+        >
+      </div>
+
+      <button class="btn btn-success" [disabled]= "!loginForm.form.valid">Save</button>
+    </form>
+</div>

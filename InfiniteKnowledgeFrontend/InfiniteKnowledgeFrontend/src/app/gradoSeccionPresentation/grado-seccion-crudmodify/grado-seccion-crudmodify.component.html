@@ -1,0 +1,42 @@
+<div class="col-md-6 offset-md-3">
+    <h3 class="text-center">Registrar Curso</h3>
+    <form (ngSubmit)= "onSubmit()" #gradoSeccionForm = "ngForm">
+      <div class="form-group">
+        <label>Grado: </label>
+        <input type = "text"
+        class="form-control"
+        id = "grado"
+        [(ngModel)] = "gradoSeccion.grado"
+        name = "grado"
+        required
+        minlength="1"
+        maxlength="1"
+        placeholder="Digite su Grado "
+        #grado = "ngModel"
+        >
+        <div class="alert alert-danger" *ngIf= "grado.invalid && (grado.dirty || grado.touched)">
+          <div *ngIf = "grado?.errors?.['required']">
+            Digite el grado
+          </div>
+          <div *ngIf = "grado?.errors?.['minlength']">
+            El grado tiene que contener como minimo 1 caracter
+          </div>
+          <div *ngIf = "grado?.errors?.['maxlength']">
+            El grado tiene que tener como maximo 1 caracteres
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Seleccione su sección: </label>
+        <select name="seccion" 
+        [(ngModel)]="gradoSeccion.seccion" 
+        class="form-control"
+        #seccion="ngModel">
+            <option *ngFor="let option of options" [value]="option">{{ option }}</option>
+        </select>
+      </div>
+
+      <button class="btn btn-success" [disabled]= "!gradoSeccionForm.form.valid">Save</button>
+    </form>
+</div>

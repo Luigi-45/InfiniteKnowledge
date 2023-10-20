@@ -1,0 +1,36 @@
+<div class="col-md-6 offset-md-3">
+    <h3 class="text-center">Registrar Calificación</h3>
+    <form (ngSubmit)= "onSubmit()" #registroCalificacionForm = "ngForm">
+      <div class="form-group">
+        <label>Estudiante: </label>
+        <input type = "text"
+        class="form-control"
+        id = "estudiante"
+        [(ngModel)] = "estudianteSeleccionado"
+        name = "estudiante"
+        required
+        placeholder="Seleccione su estudiante"
+        readonly
+        #estudiante = "ngModel"
+        >
+        <button type="button" (click)="selectStudent()">Seleccione</button>
+      </div>
+
+      <div class="form-group">
+        <label>Docente-Curso: </label>
+        <input type = "text"
+        class="form-control"
+        id = "docenteCurso"
+        [(ngModel)] = "docenteCursoSeleccionado"
+        name = "docenteCurso"
+        required
+        placeholder="Seleccione su docente-curso"
+        readonly
+        #docenteCurso = "ngModel"
+        >
+        <button type="button" (click)="selectDocenteCurso()">Seleccione</button>
+      </div>
+
+      <button type="submit" class="btn btn-success" [disabled]= "!registroCalificacionForm.form.valid">Save</button>
+    </form>
+</div>

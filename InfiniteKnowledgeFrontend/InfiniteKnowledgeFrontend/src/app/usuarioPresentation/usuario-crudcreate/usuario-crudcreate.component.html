@@ -1,0 +1,68 @@
+<div class="col-md-6 offset-md-3">
+    <h3 class="text-center">Registrar Usuario</h3>
+    <form (ngSubmit)= "onSubmit()" #userForm = "ngForm">
+      <div class="form-group">
+        <label>DNI: </label>
+        <input type = "text"
+        class="form-control"
+        id = "dni"
+        [(ngModel)] = "usuario.dni"
+        name = "dni"
+        required
+        minlength="8"
+        maxlength="8"
+        placeholder="Digite su DNI "
+        #dni = "ngModel"
+        >
+        <div class="alert alert-danger" *ngIf= "dni.invalid && (dni.dirty || dni.touched)">
+          <div *ngIf = "dni?.errors?.['required']">
+            Digite su DNI
+          </div>
+          <div *ngIf = "dni?.errors?.['minlength']">
+            El DNI tiene que contener como minimo 8 caracteres
+          </div>
+          <div *ngIf = "dni?.errors?.['maxlength']">
+            El DNI tiene que tener como maximo 8 caracteres
+          </div>
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label>Correo Electrónico: </label>
+        <input type = "text"
+        class="form-control"
+        id = "correoElectronico"
+        [(ngModel)] = "usuario.correoElectronico"
+        name = "correoElectronico"
+        required
+        minlength="1"
+        maxlength="50"
+        placeholder="Digite su Correo Electrónico "
+        #correoElectronico = "ngModel"
+        >
+        <div class="alert alert-danger" *ngIf= "correoElectronico.invalid && (correoElectronico.dirty || correoElectronico.touched)">
+          <div *ngIf = "correoElectronico?.errors?.['required']">
+            Digite su correo electrónico
+          </div>
+          <div *ngIf = "correoElectronico?.errors?.['minlength']">
+            El correo electrónico tiene que contener como minimo 1 caracter
+          </div>
+          <div *ngIf = "correoElectronico?.errors?.['maxlength']">
+            El correo electrónico tiene que tener como maximo 50 caracteres
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Seleccione su rol: </label>
+        <select name="rol" 
+        [(ngModel)]="selectedOption" 
+        class="form-control"
+        #rol="ngModel">
+            <option *ngFor="let option of options" [value]="option">{{ option }}</option>
+        </select>
+      </div>
+
+      <button class="btn btn-success" [disabled]= "!userForm.form.valid">Save</button>
+    </form>
+</div>

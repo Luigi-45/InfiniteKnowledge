@@ -1,0 +1,56 @@
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a routerLink="home" routerLinkActive="active" class="nav-link" >Inicio</a>
+      </li>
+
+      <li class="nav-item" *ngIf="rol === '1'">
+        <a routerLink="estudiante" routerLinkActive="active" class="nav-link" >Lista de Estudiantes</a>
+      </li>
+
+      <li class="nav-item" *ngIf="rol === '1'">
+        <a routerLink="docente" routerLinkActive="active" class="nav-link" >Lista de Docentes</a>
+      </li>
+
+      <li class="nav-item" *ngIf="rol === '0'">
+        <a routerLink="secretario" routerLinkActive="active" class="nav-link" >Lista de Secretarios</a>
+      </li>
+
+      <li class="nav-item" *ngIf="rol === '1'">
+        <a routerLink="curso" routerLinkActive="active" class="nav-link" >Lista de Cursos</a>
+      </li>
+
+      <li class="nav-item" *ngIf="rol === '1' || rol === '0'">
+        <a routerLink="perfil" routerLinkActive="active" class="nav-link" >Lista de Perfiles</a>
+      </li>
+
+      <li class="nav-item" *ngIf="rol === '1'">
+        <a routerLink="gradoSeccion" routerLinkActive="active" class="nav-link" >Lista de Grados y Secciones</a>
+      </li>
+
+      <li class="nav-item" *ngIf="rol === '1'">
+        <a routerLink="docenteCurso" routerLinkActive="active" class="nav-link" >Ver asignaciones docente-curso</a>
+      </li>
+
+      <li class="nav-item" *ngIf="rol === '1'">
+        <a routerLink="registroMatricula" routerLinkActive="active" class="nav-link" >Ver registro de matrícula</a>
+      </li>
+
+      <li class="nav-item" *ngIf="rol === '2'">
+        <a routerLink="registroCalificacion" routerLinkActive="active" class="nav-link" >Ver registro de calificación</a>
+      </li>      
+
+      <li class="nav-item" *ngIf="rol === '3'">
+        <a routerLink="" routerLinkActive="active" class="nav-link" >Ver matrícula</a>
+      </li> 
+
+      <li class="nav-item" *ngIf="rol === '3'">
+        <a routerLink="" routerLinkActive="active" class="nav-link" >Ver calificaciones</a>
+      </li>   
+    </ul>
+</nav>
+
+<h1 class="text-center"> {{ title }}</h1>
+<div class="container">
+    <router-outlet></router-outlet>
+</div>

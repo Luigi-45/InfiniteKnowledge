@@ -1,0 +1,34 @@
+<h2>Lista de docentes: </h2>
+<button (click)="createTeacher()" class="btn btn-sucess">Crear</button>  
+<table class="table table-striped">
+    <thead class="table-dark">
+        <tr>
+            <th> Id </th>
+            <th> DNI </th>
+            <th> Nombre </th>
+            <th> Apellido </th>
+            <th> Edad </th>
+            <th> Genero </th>
+            <th> Num. Telefónico</th>
+            <th> Especialidad</th>
+            <th> Actions </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let d of listaDocente">
+            <td> {{d.docenteId}} </td>
+            <td> {{d.dni}} </td>
+            <td> {{d.nombre}} </td>
+            <td> {{d.apellido}} </td>
+            <td> {{d.edad}} </td>
+            <td> {{d.genero}} </td>
+            <td> {{d.numTelefonico}} </td>
+            <td> {{d.especialidad}} </td>
+            <td> 
+                <button (click)="modifyTeacher(d.docenteId)" class="btn btn-info">Update</button>   
+                <button (click)="deleteTeacher(d.docenteId)" class="btn btn-danger" style="margin-left: 10px;">Delete</button> 
+                <button (click)="infoTeacher(d.docenteId)" class="btn btn-primary" style="margin-left: 10px;">Info</button> 
+            </td>
+        </tr>
+    </tbody>
+</table>

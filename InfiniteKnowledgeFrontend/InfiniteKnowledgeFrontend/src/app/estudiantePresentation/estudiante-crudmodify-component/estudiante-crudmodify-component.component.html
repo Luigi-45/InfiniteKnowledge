@@ -1,0 +1,145 @@
+<div class="col-md-6 offset-md-3">
+    <h3 class="text-center">Registrar Estudiante</h3>
+    <form (ngSubmit)= "onSubmit()" #studentForm = "ngForm">
+      <div class="form-group">
+        <label>DNI: </label>
+        <input type = "text"
+        class="form-control"
+        id = "dni"
+        [(ngModel)] = "estudiante.dni"
+        name = "dni"
+        required
+        minlength="8"
+        maxlength="8"
+        placeholder="Digite su DNI "
+        #dni = "ngModel"
+        >
+        <div class="alert alert-danger" *ngIf= "dni.invalid && (dni.dirty || dni.touched)">
+          <div *ngIf = "dni?.errors?.['required']">
+            Digite su DNI
+          </div>
+          <div *ngIf = "dni?.errors?.['minlength']">
+            El DNI tiene que contener como minimo 8 caracteres
+          </div>
+          <div *ngIf = "dni?.errors?.['maxlength']">
+            El DNI tiene que tener como maximo 8 caracteres
+          </div>
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label>Nombre: </label>
+        <input type = "text"
+        class="form-control"
+        id = "nombre"
+        [(ngModel)] = "estudiante.nombre"
+        name = "nombre"
+        required
+        minlength="1"
+        maxlength="40"
+        placeholder="Digite su Nombre "
+        #nombre = "ngModel"
+        >
+        <div class="alert alert-danger" *ngIf= "nombre.invalid && (nombre.dirty || nombre.touched)">
+          <div *ngIf = "nombre?.errors?.['required']">
+            Digite su nombre
+          </div>
+          <div *ngIf = "nombre?.errors?.['minlength']">
+            El nombre tiene que contener como minimo 1 caracter
+          </div>
+          <div *ngIf = "nombre?.errors?.['maxlength']">
+            El nombre tiene que tener como maximo 40 caracteres
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Apellido: </label>
+        <input type = "text"
+        class="form-control"
+        id = "apellido"
+        [(ngModel)] = "estudiante.apellido"
+        name = "apellido"
+        required
+        minlength="1"
+        maxlength="45"
+        placeholder="Digite su Apellido "
+        #apellido = "ngModel"
+        >
+        <div class="alert alert-danger" *ngIf= "apellido.invalid && (apellido.dirty || apellido.touched)">
+          <div *ngIf = "apellido?.errors?.['required']">
+            Digite su apellido
+          </div>
+          <div *ngIf = "apellido?.errors?.['minlength']">
+            El apellido tiene que contener como minimo 1 caracter
+          </div>
+          <div *ngIf = "apellido?.errors?.['maxlength']">
+            El apellido tiene que tener como maximo 45 caracteres
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Edad: </label>
+        <input type = "text"
+        class="form-control"
+        id = "edad"
+        [(ngModel)] = "estudiante.edad"
+        name = "edad"
+        required
+        minlength="1"
+        maxlength="3"
+        placeholder="Digite su Edad "
+        #edad = "ngModel"
+        >
+        <div class="alert alert-danger" *ngIf= "edad.invalid && (edad.dirty || edad.touched)">
+          <div *ngIf = "edad?.errors?.['required']">
+            Digite su edad
+          </div>
+          <div *ngIf = "edad?.errors?.['minlength']">
+            La edad tiene que contener como minimo 1 caracter
+          </div>
+          <div *ngIf = "edad?.errors?.['maxlength']">
+            La edad tiene que tener como maximo 3 caracteres
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Seleccione su género: </label>
+        <select name="genero" 
+        [(ngModel)]="estudiante.genero" 
+        class="form-control"
+        #genero="ngModel">
+            <option *ngFor="let option of options" [value]="option">{{ option }}</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Num. Telefónico: </label>
+        <input type = "text"
+        class="form-control"
+        id = "numTelefonico"
+        [(ngModel)] = "estudiante.numTelefonico"
+        name = "numTelefonico"
+        required
+        minlength="9"
+        maxlength="9"
+        placeholder="Digite su numTelefonico "
+        #numTelefonico = "ngModel"
+        >
+        <div class="alert alert-danger" *ngIf= "numTelefonico.invalid && (numTelefonico.dirty || numTelefonico.touched)">
+          <div *ngIf = "numTelefonico?.errors?.['required']">
+            Digite su número telefónico
+          </div>
+          <div *ngIf = "numTelefonico?.errors?.['minlength']">
+            El número telefónico tiene que contener como minimo 9 caracteres
+          </div>
+          <div *ngIf = "numTelefonico?.errors?.['maxlength']">
+            El número telefónico tiene que tener como maximo 9 caracteres
+          </div>
+        </div>
+      </div>
+      <button class="btn btn-success" [disabled]= "!studentForm.form.valid">Update</button>
+    </form>
+</div>

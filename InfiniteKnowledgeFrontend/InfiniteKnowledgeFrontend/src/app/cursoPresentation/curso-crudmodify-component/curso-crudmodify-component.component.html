@@ -1,0 +1,68 @@
+<div class="col-md-6 offset-md-3">
+    <h3 class="text-center">Registrar Curso</h3>
+    <form (ngSubmit)= "onSubmit()" #courseForm = "ngForm">
+      <div class="form-group">
+        <label>Nombre: </label>
+        <input type = "text"
+        class="form-control"
+        id = "nombre"
+        [(ngModel)] = "curso.nombre"
+        name = "nombre"
+        required
+        minlength="1"
+        maxlength="40"
+        placeholder="Digite su Nombre "
+        #nombre = "ngModel"
+        >
+        <div class="alert alert-danger" *ngIf= "nombre.invalid && (nombre.dirty || nombre.touched)">
+          <div *ngIf = "nombre?.errors?.['required']">
+            Digite el nombre del curso
+          </div>
+          <div *ngIf = "nombre?.errors?.['minlength']">
+            El nombre tiene que contener como minimo 1 caracter
+          </div>
+          <div *ngIf = "nombre?.errors?.['maxlength']">
+            El nombre tiene que tener como maximo 40 caracteres
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Número de horas: </label>
+        <input type = "text"
+        class="form-control"
+        id = "numHoras"
+        [(ngModel)] = "curso.numHoras"
+        name = "numHoras"
+        required
+        minlength="1"
+        maxlength="3"
+        placeholder="Digite su Número de Horas "
+        #numHoras = "ngModel"
+        >
+        <div class="alert alert-danger" *ngIf= "numHoras.invalid && (numHoras.dirty || numHoras.touched)">
+          <div *ngIf = "numHoras?.errors?.['required']">
+            Digite su número de horas
+          </div>
+          <div *ngIf = "numHoras?.errors?.['minlength']">
+            El número de horas tiene que contener como minimo 1 caracter
+          </div>
+          <div *ngIf = "numHoras?.errors?.['maxlength']">
+            El número de horas tiene que tener como maximo 3 caracteres
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Seleccione su enfoque: </label>
+        <select name="enfoque" 
+        [(ngModel)]="curso.enfoque" 
+        class="form-control"
+        #enfoque="ngModel">
+            <option *ngFor="let option of options" [value]="option">{{ option }}</option>
+        </select>
+      </div>
+
+      <button class="btn btn-success" [disabled]= "!courseForm.form.valid">Save</button>
+    </form>
+</div>

@@ -1,0 +1,43 @@
+<div class="col-md-6 offset-md-3">
+    <h3 class="text-center">Buscar por docente-curso</h3>
+    <form #registroCalificacionForm = "ngForm">
+      <div class="form-group">
+        <label>Docente-curso: </label>
+        <input type = "text"
+        class="form-control"
+        id = "docenteCurso"
+        [(ngModel)] = "docenteCursoSeleccionado"
+        name = "docenteCurso"
+        required
+        placeholder="Seleccione su docente-curso"
+        readonly
+        #docenteCurso = "ngModel"
+        >
+        <button type="button" (click)="selectDocenteCurso()">Seleccione</button>
+      </div>
+
+      <div class="form-group">
+        <label>Bimestre: </label>
+        <input type = "text"
+        class="form-control"
+        id = "bimestre"
+        [(ngModel)] = "bimestreSeleccionado"
+        name = "bimestre"
+        required
+        placeholder="Seleccione su bimestre"
+        readonly
+        #bimestre = "ngModel"
+        >
+        <button type="button" (click)="selectBimestre()">Seleccione</button>
+      </div>
+
+      <div class="form-group">
+        <button type="button" (click)="searchOptionByDocenteCursoBimestre()">Buscar</button>
+      </div>
+    </form>
+</div>
+
+<h2>Lista de registros de calificación: </h2>
+<button (click)="createRegistroCalificacion()" class="btn btn-sucess">Crear</button> 
+<table class="table table-striped" id="tablaRegistroCalificacion">
+</table>

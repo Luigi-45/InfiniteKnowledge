@@ -1,0 +1,18 @@
+{
+    "dni": "12345679",
+    "nombre": "Aaron",
+    "apellido": "Sosa",
+    "edad": 14,
+    "genero": "Hombre",
+    "numTelefonico": "123456789"
+}
+
+{
+    "dni": "3",
+    "nombre": "Jimena",
+    "apellido": "Sosa",
+    "edad": 28,
+    "genero": "Mujer",
+    "numTelefonico": "2",
+    "especialidad": "Humanidades"
+}

@@ -1,0 +1,36 @@
+<div class="col-md-6 offset-md-3">
+    <h3 class="text-center">Registrar Docente-Curso</h3>
+    <form (ngSubmit)= "onSubmit()" #docenteCursoForm = "ngForm">
+      <div class="form-group">
+        <label>Docente: </label>
+        <input type = "text"
+        class="form-control"
+        id = "docente"
+        [(ngModel)] = "docenteSeleccionado"
+        name = "docente"
+        required
+        placeholder="Seleccione su docente"
+        readonly
+        #docente = "ngModel"
+        >
+        <button type="button" (click)="selectTeacher()">Seleccione</button>
+      </div>
+
+      <div class="form-group">
+        <label>Curso: </label>
+        <input type = "text"
+        class="form-control"
+        id = "curso"
+        [(ngModel)] = "cursoSeleccionado"
+        name = "curso"
+        required
+        placeholder="Seleccione su curso"
+        readonly
+        #curso = "ngModel"
+        >
+        <button type="button" (click)="selectCourse()">Seleccione</button>
+      </div>
+
+      <button type="submit" class="btn btn-success" [disabled]= "!docenteCursoForm.form.valid">Save</button>
+    </form>
+</div>

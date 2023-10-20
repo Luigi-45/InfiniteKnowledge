@@ -1,0 +1,24 @@
+<h2>Lista de perfiles: </h2>
+<button (click)="createProfile()" class="btn btn-sucess">Crear</button>  
+<table class="table table-striped">
+    <thead class="table-dark">
+        <tr>
+            <th> Id </th>
+            <th> DNI </th>
+            <th> Correo Electrónico </th>
+            <th> Rol </th>
+            <th> Actions </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let p of listaPerfiles">
+            <td> {{p.usuarioId}} </td>
+            <td> {{p.dni}} </td>
+            <td> {{p.correoElectronico}} </td>
+            <td> {{listaRoles.get(p.usuarioId)}} </td>
+            <td> 
+                <button (click)="infoUser(p.usuarioId)" class="btn btn-primary" style="margin-left: 10px;">Info</button> 
+            </td>
+        </tr>
+    </tbody>
+</table>

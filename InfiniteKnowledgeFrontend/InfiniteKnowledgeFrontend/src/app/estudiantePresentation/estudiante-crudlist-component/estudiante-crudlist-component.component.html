@@ -1,0 +1,32 @@
+<h2>Lista de estudiantes: </h2>
+<button (click)="createStudent()" class="btn btn-sucess">Crear</button>   
+<table class="table table-striped">
+    <thead class="table-dark">
+        <tr>
+            <th> Id </th>
+            <th> DNI </th>
+            <th> Nombre </th>
+            <th> Apellido </th>
+            <th> Edad </th>
+            <th> Genero </th>
+            <th> Num. Telefónico</th>
+            <th> Actions </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let s of listaEstudiante">
+            <td> {{s.estudianteId}} </td>
+            <td> {{s.dni}} </td>
+            <td> {{s.nombre}} </td>
+            <td> {{s.apellido}} </td>
+            <td> {{s.edad}} </td>
+            <td> {{s.genero}} </td>
+            <td> {{s.numTelefonico}} </td>
+            <td> 
+                <button (click)="modifyStudent(s.estudianteId)" class="btn btn-info">Update</button>   
+                <button (click)="deleteStudent(s.estudianteId)" class="btn btn-danger" style="margin-left: 10px;">Delete</button> 
+                <button (click)="infoStudent(s.estudianteId)" class="btn btn-primary" style="margin-left: 10px;">Info</button> 
+            </td>
+        </tr>
+    </tbody>
+</table>

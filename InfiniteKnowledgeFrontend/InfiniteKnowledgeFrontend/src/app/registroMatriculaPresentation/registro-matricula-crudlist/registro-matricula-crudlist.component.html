@@ -1,0 +1,28 @@
+<div class="col-md-6 offset-md-3">
+    <h3 class="text-center">Buscar por grado y sección</h3>
+    <form #registroMatriculaForm = "ngForm">
+      <div class="form-group">
+        <label>Grado y sección: </label>
+        <input type = "text"
+        class="form-control"
+        id = "gradoSeccion"
+        [(ngModel)] = "gradoSeccionSeleccionada"
+        name = "gradoSeccion"
+        required
+        placeholder="Seleccione su grado y sección"
+        readonly
+        #gradoSeccion = "ngModel"
+        >
+        <button type="button" (click)="selectGradoSeccion()">Seleccione</button>
+      </div>
+
+      <div class="form-group">
+        <button type="button" (click)="searchOptionByGradoSeccion()">Buscar</button>
+      </div>
+    </form>
+</div>
+
+<h2>Lista de registros de matrícula: </h2>
+<button (click)="createRegistroMatricula()" class="btn btn-sucess">Crear</button> 
+<table class="table table-striped" id="tablaRegistroMatricula">
+</table>

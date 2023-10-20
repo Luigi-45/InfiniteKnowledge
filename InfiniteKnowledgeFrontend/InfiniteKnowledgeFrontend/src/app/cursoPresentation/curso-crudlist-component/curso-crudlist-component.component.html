@@ -1,0 +1,26 @@
+<h2>Lista de cursos: </h2>
+<button (click)="createCourse()" class="btn btn-sucess">Crear</button>  
+<table class="table table-striped">
+    <thead class="table-dark">
+        <tr>
+            <th> Id </th>
+            <th> Nombre </th>
+            <th> Número de horas </th>
+            <th> Enfoque </th>
+            <th> Actions </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let c of listaCurso">
+            <td> {{c.cursoId}} </td>
+            <td> {{c.nombre}} </td>
+            <td> {{c.numHoras}} </td>
+            <td> {{c.enfoque}} </td>
+            <td> 
+                <button (click)="modifyCourse(c.cursoId)" class="btn btn-info">Update</button>   
+                <button (click)="deleteCourse(c.cursoId)" class="btn btn-danger" style="margin-left: 10px;">Delete</button> 
+                <button (click)="infoCourse(c.cursoId)" class="btn btn-primary" style="margin-left: 10px;">Info</button> 
+            </td>
+        </tr>
+    </tbody>
+</table>

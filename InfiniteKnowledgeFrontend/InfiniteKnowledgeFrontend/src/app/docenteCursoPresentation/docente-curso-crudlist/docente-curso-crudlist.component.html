@@ -1,0 +1,24 @@
+<h2>Lista de asignaciones docentes-cursos: </h2>
+<button (click)="createDocenteCurso()" class="btn btn-sucess">Crear</button>  
+<table class="table table-striped">
+    <thead class="table-dark">
+        <tr>
+            <th> Id </th>
+            <th> Docente </th>
+            <th> Curso </th>
+            <th> Actions </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let dc of docenteCursos">
+            <td> {{dc.docenteCursoId}} </td>
+            <td> {{dc.docenteNombre}} </td>
+            <td> {{dc.cursoNombre}} </td>
+            <td> 
+                <button (click)="modifyAsignation(dc.docenteCursoId)" class="btn btn-info">Update</button>   
+                <button (click)="deleteAsignation(dc.docenteCursoId)" class="btn btn-danger" style="margin-left: 10px;">Delete</button> 
+                <button (click)="infoAsignation(dc.docenteCursoId)" class="btn btn-primary" style="margin-left: 10px;">Info</button> 
+            </td>
+        </tr>
+    </tbody>
+</table>

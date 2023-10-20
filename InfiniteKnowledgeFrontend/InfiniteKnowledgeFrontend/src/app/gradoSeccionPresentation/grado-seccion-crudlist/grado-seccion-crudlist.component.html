@@ -1,0 +1,24 @@
+<h2>Lista de grados y secciones: </h2>
+<button (click)="createGradoSeccion()" class="btn btn-sucess">Crear</button> 
+<table class="table table-striped">
+    <thead class="table-dark">
+        <tr>
+            <th> Id </th>
+            <th> Grado </th>
+            <th> Sección </th>
+            <th> Actions </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let g of listaGradosSecciones">
+            <td> {{g.gradoSeccionId}} </td>
+            <td> {{g.grado}} </td>
+            <td> {{g.seccion}} </td>
+            <td> 
+                <button (click)="modifyGradoSeccion(g.gradoSeccionId)" class="btn btn-info">Update</button>   
+                <button (click)="deleteGradoSeccion(g.gradoSeccionId)" class="btn btn-danger" style="margin-left: 10px;">Delete</button> 
+                <button (click)="infoGradoSeccion(g.gradoSeccionId)" class="btn btn-primary" style="margin-left: 10px;">Info</button> 
+            </td>
+        </tr>
+    </tbody>
+</table>
